@@ -1,0 +1,494 @@
+$Violet :#8A2BE2;
+$white :#FFFFFF;
+$grisClair :#EEEEEE;
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.nav{
+  color: black;
+  background-color: white;
+  border: none;
+  margin-top: 10px;
+}
+.inputtext{
+    padding: 10px 150px 12px 10px;
+    border: 2px solid $grisClair;
+}
+.inputsub{
+    padding: 11px 15px 13px 15px;
+    margin-left: -5px;
+    background-color: $Violet;
+    color: $white;
+    border: none;
+    font-size: 15px;
+  }
+.activee{
+  background-color: $white;
+  color: $Violet;
+}
+.navbar-inverse .navbar-nav>li>a{
+  color: black;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+  color: $Violet;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a, .dropdown-toggle:hover {
+  color: $Violet;
+  background-color: $white;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  color: $Violet;
+  background-color: $white;
+}
+.menu{
+  margin-left: 120px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: $Violet;
+  background-color: $white;
+}
+.select-cat{
+  width: 20%;
+  margin-left: 2%;
+}
+.log-menu{
+  margin-left: 350px;
+}
+.pp{
+  margin-left: 10px;
+  margin-top: -10px;
+  img{
+    width: 15px;
+    height: 8px;
+    margin-left: 2px;
+    margin-top: -2px;
+  }
+}
+.hh{
+  margin-top: -35px;
+  margin-left: 0px;
+}
+.cart-menu{
+  width: 40px;
+  height: 50px;
+}
+.carousel-inner .item a img, .carousel-inner .item img, .img-responsive, .thumbnail a img, .thumbnail img  {
+  height: 500px;
+}
+.titrescat{
+  margin-top: 20px;
+  text-align : center;
+  margin-bottom: 50px;
+  button{
+    background-color: white;
+    padding: 10px 30px;
+    font-size: 18px;
+  }
+}
+.b2{
+  margin-left: -5px;
+  margin-right: -5px;
+}
+@for $i from 1 through 3 {
+ .buttonslide-#{$i}{
+    border: 3px solid $Violet;
+    border-radius: 15px 15px 0px 0px;
+}}
+.livre{
+  border: none;
+  border-right: 2px solid $grisClair;
+  align-content: center;
+  width: 25%;
+  margin-bottom: 50px;
+
+  p,h3{
+    text-align: center;
+
+  }
+}
+.imglivre{
+  background: url("../images/livre1.png") center center/cover no-repeat;
+  margin: auto;
+  height: 250px;
+  // padding: 50px;
+  div{
+  margin-left: 30px;  
+  button{
+    margin-top: 100px;
+    margin-left: -4px;
+    background-color: white;
+    padding: 10px 25px;
+    border: 2px solid $grisClair;
+  }
+}}
+.cartmenu{
+  font-size:35px;
+  color: $Violet;
+ 
+}
+.pa{
+  margin-left: 89%;
+}
+.plusvendus{
+background-image: url("../images/qqq.png");
+height: 700px;}
+.plusvendusdiv{
+  // width: 96%;
+  height: 550px;
+  margin-top: 30px;
+  // margin-left: 2%;
+  background-color: $white;
+  
+}
+
+
+.plusvendusimg img{
+  margin-top: 20px;
+  margin-right: 10px;
+  width: 100%;
+  height: 500px;
+
+}
+.livre2{
+  border: none;
+  border-right: 2px solid $grisClair;
+  background: url("../images/livre1.png") center center/cover no-repeat;
+  height: 250px;
+  width: 30%;
+  div{
+    width: 120%;
+
+  button{
+    margin-top: 100px;
+    margin-left: -4px;
+    background-color: white;
+    padding: 10px 20px;
+    border: 2px solid $grisClair;
+  }
+}
+}
+  
+  a{
+    text-decoration: none;
+  }
+  .login{
+    font-size: 16px;
+    color: $Violet;
+    text-decoration: none;
+    &:hover{
+      color: $Violet;
+      text-decoration: none;
+    }
+    
+  }
+  .ins, .ou{
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    &:hover{
+      color: $Violet;
+      text-decoration: none;
+    }
+  }
+  .plusvenduss{
+    text-align: center;  
+    color: $Violet;
+  }
+  footer{
+    margin-top: 50px;
+    background-color: #EEEEEE;
+    width: 100%;
+    height: 360px;
+    h4{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    h5{
+      margin-bottom: 25px;
+    
+  }
+    h6{
+      text-align: center;
+      margin-top: 40px;
+
+    }
+    input{
+      width: 90%;
+      height: 50px;
+      
+      -size: 18px;
+      border: 2px solid gray;}
+      a{
+        color: black;
+        text-decoration: none;
+     &:hover{
+       color: $Violet;
+       text-decoration: none;
+     }
+      
+    }
+
+    button{
+      margin-top: 10px;
+      width: 90%;
+      height: 50px;
+      background-color: $Violet;
+      color: $white;
+      font-size: 25px;
+      border: none;
+     
+    }
+    i{
+      font-size: 30px;
+      margin-right: 5px;
+    }
+  }
+  .fb{
+    margin-top: 25px;
+    font-size: 35px;
+    color :#3B5998
+
+  }
+  .twitter{
+    margin-top: 25px;
+    font-size: 35px;
+    color: #1DA1F2;
+  }
+  .gplus{
+    margin-top: 25px;
+    font-size: 35px;
+    color: #EA4335;
+
+  }
+  .pinterest{
+    margin-top: 25px;
+    font-size: 35px;
+    color: #BD081C;
+  }
+  .h h4:hover{
+      color: $Violet;
+   
+  }
+  .carousel-indicators li {
+    background-color: transparent;  
+    border: 2px solid $Violet; 
+}
+.carousel-indicators .active {
+    background-color: $Violet;
+}
+.cattt{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 90%;
+  margin-left: 5%;
+}
+@for $i from 1 through 5 {
+  .cat#{$i}{
+  background: url("../images/cat#{$i}.jpg") center center/cover no-repeat;
+  height: 250px;
+  @if ($i==4 or $i==5) {
+    margin-top:10px
+  }
+  a{
+    margin-left: 15px;
+    color: black;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration: none;
+  }
+  i{
+    margin-left: 15px;
+    margin-top: 5px;
+  }
+ }}
+ .cat1{
+ height: 500px;
+ }
+ .f{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 30px;
+ }
+ .row1{
+   border: 2px solid $grisClair;
+   margin-right: 15px;
+   i{
+     margin-top: 12px;
+     color: $Violet;
+     font-size: 30px;
+   }
+ }
+ .slide{
+   text-align: center;
+   i{
+     font-size: 30px;
+     color:$Violet;
+   }
+ }
+ .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle{
+   background-color: $Violet;
+   float: right;
+   &:hover{
+    background-color: $Violet;
+   }
+ }
+ .search2{
+  display: none;
+}
+.pap{
+  margin-left: -50px;
+  margin-top: 10px;
+}
+.nom{
+  margin-left: -50px;
+  margin-right: 50px;
+  margin-top: -20px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  &:hover{
+    text-decoration: none;
+  color: black;
+  }
+  i{
+    font-size: 22px;
+    color: $Violet;
+  }
+
+}
+.plusvues,.nouveaux{
+  display: none;
+}
+.prix{
+  color: $Violet;
+  font-size: 22px;
+}
+.imglivre11{
+  display: none;
+}
+.carousel-caption h1{
+  margin-top: -300px;
+  margin-left: 400px;
+  color: $Violet;
+  font-size: 50px;
+}
+.carousel-caption p{
+  margin-left: 400px;
+  color: $Violet;
+  font-size: 22px;
+  color: black;
+}
+.carousel-caption button{
+  margin-left: 400px;
+  margin-top: 20px;
+  color: white;
+  font-size: 16px;
+  background-color: $Violet;
+  padding: 10px 20px;
+  border: none;
+  // border: 2px solid $violet;
+}
+ @media(max-width:1024px) {
+   .livre{
+     width: 90%;
+   } 
+   .imglivre div {
+    margin-left: 70px;
+}
+.plusvendusdiv {
+  height: 2000px;
+}
+.plusvendus{
+  height: 2200px;
+} 
+.nom{
+  display: none;
+}
+
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+.nav{
+  background-color: #EEEEEE;
+  margin-top: 0px;
+}
+.menu {
+  margin-left: 0px; 
+  text-align: center;
+  // border-bottom: 1px solid $Violet;
+  width: 100%;
+  z-index: 999;
+}
+.search1,.login,.ins,.ou,.pa,.cartmenu{
+  display: none;
+}
+.search2{
+  display: block;
+  margin-top: 10px;
+}
+.form-control{
+  width: auto;
+  margin: 25px 100%;
+}
+.row1{
+  margin-bottom: 20px;
+  width: 80%;
+  margin-left: 10%;
+}
+footer{
+  height: 1150px;
+}
+.plusvenduslivres{
+  text-align: center;
+}
+.livre2 {
+ width: 100%;
+ margin-top: 10px;
+}
+.livre2 div {
+   width: 100%; 
+}
+.imglivre22{
+  margin-left: 20px;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+  color: white;
+  text-align: center;
+  &:hover{
+    color: white;
+  }
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+  color : $Violet;
+ }
+ .navbar-inverse .navbar-nav>li>a {
+   color : black;
+  }
+  .dropdown-toggle:hover {
+    color: #E6E6FA;
+    background-color: #E6E6FA;
+  }
+  .navbar-brand>img {
+    margin-top: -10px;
+  }
+  .search2 input{
+    padding: 6px 60px 6px 6px;
+  }
+  .search2 button{
+    padding: 6px 8px;
+    background-color: $Violet;
+    margin-left: -5px;
+    border: none;
+    &:hover{
+      color: $Violet;
+      background-color: black;
+  
+    }
+  }
+}
+

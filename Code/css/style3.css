@@ -1,0 +1,137 @@
+html {
+  font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  color: #666;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body, html {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.nav > li > a:hover {
+  background-color: grey;
+  color: #8A2BE2;
+}
+
+.navbar-inverse {
+  background-color: grey;
+}
+
+.navbar-inverse li {
+  margin-top: 20px;
+}
+
+.navbar-inverse li:hover {
+  background-color: grey;
+}
+
+.navbar-inverse img {
+  margin-left: 12%;
+  width: 150px;
+  height: 50px;
+}
+
+.navbar-inverse a {
+  color: white;
+  margin-left: 12%;
+}
+
+.navbar-inverse a:hover {
+  background-color: #8A2BE2;
+  color: #EEEEEE;
+}
+
+.topp {
+  width: 100%;
+  height: 35px;
+  background-color: white;
+}
+
+.tb {
+  width: 80%;
+  margin-left: 10%;
+}
+
+table {
+  table-layout: fixed;
+}
+
+.topp2 {
+  margin-left: 73%;
+  margin-top: 10px;
+}
+
+.cont {
+  margin-left: 200px;
+}
+
+.cont h2 {
+  margin-left: 10px;
+  color: #5a5c69 !important;
+}
+
+.add {
+  border: none;
+  margin-left: 80%;
+  margin-bottom: 20px;
+}
+
+.logout {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #8A2BE2;
+}
+
+.logout:hover {
+  text-decoration: none;
+  color: #8A2BE2;
+}
+
+i {
+  color: black;
+}
+
+/* we push the content down some and clean up the edges on mobile devices */
+@media (max-width: 767px) {
+  .content {
+    padding: 15px;
+    margin-top: 100px;
+  }
+}
+
+/* When we were on larger screen sizes we can show our vertical menu bar */
+@media (min-width: 768px) {
+  /* clean up some of the default Bootstrap styles for panels in the menu */
+  #menu-bar .panel {
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -box-shadow: none;
+  }
+  #navbar {
+    float: left;
+    width: 200px;
+    /* You can adjust the width to your liking, just remember to also adjust the content margin below accordingly */
+    height: 100%;
+  }
+  .content {
+    margin-left: 300px;
+    /* If you adjusted the width above you will need to adjust this as well */
+    min-height: 100%;
+  }
+  .cc {
+    margin-left: 25px;
+    /* We will add a little cushion to our content between the menu bar */
+  }
+}
+/*# sourceMappingURL=style3.css.map */
