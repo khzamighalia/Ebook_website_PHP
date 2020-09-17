@@ -46,22 +46,33 @@ include "livredesc-back.php";
 <div class="col-md-2 log-menu">
 <?php
   if(isset($_SESSION['login'])){
-    echo'<br> <a class="nom" href="php/compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
+    echo'<br> <a class="nom" href="compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
   }
   else{
-    echo'<a class="login" href="php/login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
-<a class="ins" href="php/auth.php">Inscription</a>';
+    echo'<a class="login" href="login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
+<a class="ins" href="register.php">Inscription</a>';
 }
 ?>
 </div>
 <div class="col-md-1 pap">
 <i class="fab fa-opencart cartmenu" ></i>
 </div>
-<div class="col-md-1 pa">
-  <h3 class="hh"> Panier </h3>
-  <p class="pp">$0.00 
-    <img src="../images/iconarrow.png"></img></p>
+<?php
+        if(isset($_SESSION['login'])){
+    echo'
+    <div class="col-md-1 pa2">
+  <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+<p class="pp2">'.$result2.'$ <i class=" arr fas fa-angle-down"></i></p>';
+  }
+  else{
+    echo'<div class="col-md-1 pa">
+    <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+  <p class="pp"> $0.00 <i class=" arr fas fa-angle-down"></i>
+  </p>';
+}
+         ?>  
 </div>
+
 </div>
 </div>
 
@@ -123,7 +134,7 @@ include "livredesc-back.php";
 </div>
 </div>
 <div class="headd">
-<h4> Accueil > Détails du produit </h4>
+<h4> Accueil > Détails du livre </h4>
 </div>
 <div class="container">
 <?php

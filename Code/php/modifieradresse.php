@@ -1,3 +1,6 @@
+<?php
+include "modifieradresse-back.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
 
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head><body>
-<div class="container-fluid">
+<div class="">
 <div class="row cnt-navbar">
   <div class="select-cat col-md-10">
 <select class="form-control form-control-lg ">
@@ -52,10 +55,20 @@
 <div class="col-md-1 pap">
 <i class="fab fa-opencart cartmenu" ></i>
 </div>
-<div class="col-md-1 pa">
-  <h3 class="hh"> Panier </h3>
-  <p class="pp">$0.00 
-    <img src="../images/iconarrow.png"></img></p>
+<?php
+        if(isset($_SESSION['login'])){
+    echo'
+    <div class="col-md-1 pa2">
+  <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+<p class="pp2">'.$result2.'$ <i class=" arr fas fa-angle-down"></i></p>';
+  }
+  else{
+    echo'<div class="col-md-1 pa">
+    <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+  <p class="pp"> $0.00 <i class=" arr fas fa-angle-down"></i>
+  </p>';
+}
+         ?>  
 </div>
 </div>
 </div>
@@ -123,70 +136,70 @@
   </select>
 </div>
 </div>
-</div><div class="headd">
+</div>
+<div class="headd">
 <h4> Accueil > Mon compte </h4>
 <h4> <strong>MON COMPTE</strong></h4>
 </div>
 <div class="container-fluid boutique" >
   <div class="row">
-    <div class="col-md-3 col-12 comptebar" >
-        <div class="cptpagediv ">
-      <button class="cpt"><a href="compte.php"><i class="fas fa-tachometer-alt"></i> tableau de bord</a></button>
-      </div>
+    <div class="col-md-3 comptebar">
+    <a href="compte.php">
       <div class="cptpagediv">
-      <button class="cpt"><a href="commandes.php"><i class="fas fa-cart-arrow-down"></i> Commandes </a></button>
+      <button class="cpt"><i class="fas fa-tachometer-alt"></i> tableau de bord </button>
       </div>
+    </a>
+    <a href="commandes.php">
       <div class="cptpagediv">
-      <button class="cpt "><a href="telechargements.php"> <i class="fas fa-download"></i>téléchargements</a></button>
-      </div>
+      <button class="cpt"><i class="fas fa-cart-arrow-down"></i> Commandes </button>
+      </div> </a>
+      <a href="adresse.php"> 
       <div class="cptpagediv cptpage">
-      <button class="cptpage"> <a href="paiement.php"><i class="far fa-credit-card"></i>paiement </a> </button>
+      <button class="cptpage"><i class="fas fa-map-marker"></i>adresse </button>
       </div>
+      </a>
+      <a href="details.php">
       <div class="cptpagediv">
-      <button class="cpt"><a href="adresse.php"> <i class="fas fa-map-marker"></i>adresse </a></button>
+      <button class="cpt"> <i class="fas fa-user"></i>détails du compte </button>
       </div>
+      </a>
+      <a href="logout.php"> 
       <div class="cptpagediv">
-      <button class="cpt"> <a href="details.php"> <i class="fas fa-user"></i>détails du compte </a></button>
+      <button class="cpt"><i class="fas fa-sign-out-alt"></i>déconnexion </button>
       </div>
-      <div class="cptpagediv">
-      <button class="cpt"><a href="logout.php"> <i class="fas fa-sign-out-alt"></i>déconnexion </a></button>
-      </div>
+      </a>
 </div>
-    <div class="col-md-9 col-12" >
-    <div class="cntcmd">
-    <h2>PAIEMENT</h2>
-    <hr class="hr1">
-    <h3>Choisissez votre méthode de paiement</h3>
-    <div>
-  <input type="radio" id="paypal" name="paiement" value="paypal"
-         checked>
-  <label for="paypal"> <h5><strong style="margin-right:50px">Paypal </strong> Paiement sécurisé. Carte de crédit en ligne nécessaire</h5></label> <img class="paypaimg" src="../images/paypal.jpg">
+    <div class="col-md-9" >
+    <div class="cntcpt">
+    <h2>ADRESSE DE LIVRAISON</h2>
+    <hr class=hr1>
+    <div class="adiv">
+    <?php  if($row){
+    echo ' <form method="post" action="'.$_SERVER['PHP_SELF'].'">  
+    <label> Adresse </label><br>
+          <input type="text" name="modadresse" class="no2" value="'.$row['adresse'].'">
+          <br>
+          <label>Mobile :</label><br>
+          <input type="text" name="modtel" class="nn2" value="'.$row['tel'].'"><br>  
+          <button class="confirm" type="submit" name="confirmermod"><i class="fas fa-edit"></i> Confirmer les modifications </button>
+          </form>';}
+ else{
+  echo ' <form method="post" action="'.$_SERVER['PHP_SELF'].'">  
+  <label> Adresse </label><br>
+        <input type="text" name="modadresse" class="no2" placeholder="Inserez votre adresse">
+        <br>
+        <label>Mobile :</label><br>
+        <input type="text" name="modtel" class="nn2" placeholder="Inserez votre numéro de téléphone"><br>  
+        <button class="confirm" type="submit" name="confirmermod"><i class="fas fa-edit"></i> Confirmer les modifications </button>
+        </form>';
+ }
+ ?>
+   
+          <a href="adresse.php"><button class="annuler"> Annuler </button></a>
 </div>
-<div>
-  <input type="radio" id="cc" name="paiement" value="cc"
-         >
-  <label for="cc"> <h5><strong style="margin-right:20px">Crédit Card </strong> Paiement sécurisé.  Carte de crédit en ligne nécessaire</h5></label>  <img class="ccimg" src="../images/creditcard.png">
-</div>
-<h3>Numéro de la carte bancaire</h3>
-<input type="text" class="code" placeholder="0000 0000 0000 xxxx">
-<div class="row nnn2">
-          <div class="col-md-6" >
-          <label>Code ccv</label><br>
-          <input type="text" name="nom" class="nn2">
-</div>
-          <div class="col-md-6" >
-          <label>Date d'éxpiration</label><br>
-          <input type="text" name="prenom" class="nn2">
-</div>
-</div>
-<div class="row">
-          <div class="col-md-6" >
-          <button class="confirm"><i class="fas fa-edit"></i> Confirmer les changements</button>
-</div>
-</div>
-
-  
     </div>
+    
+</div>
 </div>
 </div>
 
@@ -194,9 +207,8 @@
 </div>
 </div>
     </div>
-
   </div>
-  
+
 <!-- Footer -->
 <footer class="container-fluid">
   <div class="row">
@@ -215,15 +227,15 @@
 <h3>INFORMATION</h3>
       <h4>Nouveaus produits</h4>
       <h4>Meilleurs ventes</h4>
-      <h4><a href="contact.php">Contactez nous</a></h4>
+      <h4>Contactez nous</h4>
       <h4>Les plus vus</h4>
 </div>
 <div class="col-md-3 col-12 h">
 <h3>EXTRAS</h3>
       <h4>Livraison</h4>
       <h4>Qui sômmes-nous?</h4>
-      <h4><a href="boutique.php">Boutique</a></h4>
-      <h4><a href="contact.php">Contactez nous</a></h4>
+      <h4><a href="boutique.php"> Boutique </a></h4>
+      <h4><a href="contact.php">Contactez nous</a> </h4>
 </div>
 <div class="col-md-3 col-12">
 <h3>NEWLETTER</h3>
@@ -247,9 +259,6 @@
 <i class="fab fa-pinterest-square pinterest"></i>
 </div>
 </footer>
-
-</div>
+ </div>
 </body>
 </html>
-
-    

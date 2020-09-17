@@ -19,6 +19,7 @@
     <div class="col-md-6 auth2" >
       <div class="insdiv">
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <center>
           <h4>Nouveau client?</h4>
           <h6>Je suis un nouveau client </h6>
           <div class="row nnn">
@@ -36,9 +37,9 @@
           <label>Mot de passe</label><br>
           <input type="password" name="passwordi" class="no" required><br>
           <label>Répétez le mot de passe</label><br>
-          <input type="password" name="password2" class="no" required>
+          <input type="password" name="password2" class="no" required><br>
           <button type="submit" class="btncnx" name="register" > S'INSCRIRE</button>
-          <center><p>Vous n'avez pas de compte?<a href="login.php"> Inscrivez-vous </a></p>
+          <center><p>Avez-vous déjà un compte?<a href="login.php"> Connectez-vous </a></p>
           </center>
       </div>
 </div>

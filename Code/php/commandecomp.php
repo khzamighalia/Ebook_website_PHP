@@ -1,3 +1,6 @@
+<?php
+include "commandecomp-back.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +17,42 @@
 
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head><body>
+<div class="container-fluid">
+<div class="row cnt-navbar">
+  <div class="select-cat col-md-10">
+<select class="form-control form-control-lg ">
+  <option>--Chercher par catégories--</option>
+  <option value="">Arts & Culture </option>
+  <option value=""> Développement personnel</option>
+  <option value="">Histoire & Géographie</option>
+  <option value="">Romans & Fictions</option>
+  <option value="">Sciences & Techniques</option>
+
+
+</select>
+
+</div>
+<div class="select-cat col-md-2 col-12">
+<select class="form-control form-control-lg">
+  <option>-- Chercher par langues --</option>
+  <option> Arabe </option>
+  <option> Anglais </option>
+  <option> Espagnol </option>
+  <option> Français </option>
+  </select>
+</div>
+<div class="col-md-2 log-menu">
+<?php
+  if(isset($_SESSION['login'])){
+    echo'<br> <a class="nom" href="php/compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
+  }
+  else{
+    echo'<a class="login" href="php/login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
+<a class="ins" href="php/auth.php">Inscription</a>';
+}
+?>
+</div>
+</div>
 <nav class="navbar navbar-inverse nav">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -41,32 +80,38 @@
       
     <li><a href="../index.php">Accueil</a></li>
         <li><a href="boutique.php">Boutique</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Panier</a></li>
-            <li><a href="#">Authentification</a></li>
-          </ul>
-        </li>
+        <?php
+        if(isset($_SESSION['login'])){
+    echo'<li><a href="compte.php"> Mon compte </a></li>';
+  }
+  else{
+    echo'<li><a href="php/login.php">Authentification</a></li>';
+}
+         ?>
       
         <li><a href="contact.php">Contact</a></li>
     
       </ul>
     </div>
   </div>
-</nav>
-<div class="headd">
+</nav><div class="headd">
 <h4> Accueil > Commande complete </h4>
 </div>
 <div class="cmp" >
 <h1>Merci !</h1>
 <h3>Commande complete </h3>
 </div>
+<?php
+     $row = $result->fetch_assoc();
+?>
 <ul>
-  <li> <h4>N° de la commande  :<strong> 191991</strong></h4></li>
-  <li><h4> Date  :<strong> 191991</strong></h4></li>
-  <li><h4> Total  :<strong> 191991</strong></h4></li>
-  <li><h4> Méthode de livraison :<strong> 191991</strong></h4></li>
+  <li> <h4>N° de la commande  :<strong> <?= $row['id'] ?></strong></h4></li>
+  <li> <h4>Nom  :<strong> <?= $_SESSION["lastname"] ?></strong></h4></li>
+  <li> <h4>Prenom  :<strong><?= $_SESSION["firstname"] ?></strong></h4></li>
+  <li> <h4>Adresse :<strong> <?= $row['adresse'] ?> </strong></h4></li>
+  <li><h4> Date  :<strong> <?= $row['date'] ?></strong></h4></li>
+  <li><h4> Total avec frais de livraison  :<strong> <?= $resulttotal ?>$ </strong></h4></li>
+  <li><h4> Méthode de paiement :<strong> paiement à la livraison </strong></h4></li>
 </ul>
 <div class="container panier complete" >
   <div class="table-responsive">
@@ -78,10 +123,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>livre x 1</td>
-          <td>$76</td>
-        </tr>
+      <?php    
+        while($row2=$result2->fetch_array(MYSQLI_ASSOC)){
+        $id_produit=$row2['id_produit'];
+        if($result3=$cart->AfficheLivre($id_produit)){
+        $row3 = $result3->fetch_assoc();
+        echo '<tr>
+          <td>'.$row3['titre'].' x '.$row2['qte'].'</td>
+          <td> '.$row3['prix']*$row2['qte'].'$ </td>
+        </tr>';
+        }}
+        $res=$cart->deletePaniercmd($id_user);
+        ?>
       </tbody>
     </table>
   </div>

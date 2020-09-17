@@ -10,6 +10,22 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+.nom {
+  margin-right: 50px;
+  text-decoration: none;
+  color: black;
+  margin-top: -30px;
+}
+
+.nom:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.nom i {
+  color: #8A2BE2;
+}
+
 body, html {
   background-color: whitesmoke;
   width: 100%;
@@ -61,6 +77,10 @@ body, html {
   margin-left: 10%;
 }
 
+.tb2 {
+  width: 100%;
+}
+
 table {
   table-layout: fixed;
 }
@@ -86,13 +106,20 @@ table {
 }
 
 .logout {
-  margin-left: 10px;
+  margin-left: 88%;
+  margin-top: -30px;
   text-decoration: none;
+}
+
+.logout a {
   color: #8A2BE2;
 }
 
-.logout:hover {
+.logout a:hover {
   text-decoration: none;
+}
+
+.logout a i {
   color: #8A2BE2;
 }
 

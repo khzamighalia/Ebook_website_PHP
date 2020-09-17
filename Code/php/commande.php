@@ -4,7 +4,7 @@ include "commande-back.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title> Wisdom </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,6 +17,42 @@ include "commande-back.php";
 
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head><body>
+<div class="container-fluid">
+<div class="row cnt-navbar">
+  <div class="select-cat col-md-10">
+<select class="form-control form-control-lg ">
+  <option>--Chercher par catégories--</option>
+  <option value="">Arts & Culture </option>
+  <option value=""> Développement personnel</option>
+  <option value="">Histoire & Géographie</option>
+  <option value="">Romans & Fictions</option>
+  <option value="">Sciences & Techniques</option>
+
+
+</select>
+
+</div>
+<div class="select-cat col-md-2 col-12">
+<select class="form-control form-control-lg">
+  <option>-- Chercher par langues --</option>
+  <option> Arabe </option>
+  <option> Anglais </option>
+  <option> Espagnol </option>
+  <option> Français </option>
+  </select>
+</div>
+<div class="col-md-2 log-menu">
+<?php
+  if(isset($_SESSION['login'])){
+    echo'<br> <a class="nom" href="compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
+  }
+  else{
+    echo'<a class="login" href="login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
+<a class="ins" href="register.php">Inscription</a>';
+}
+?>
+</div>
+</div>
 <nav class="navbar navbar-inverse nav">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -44,13 +80,14 @@ include "commande-back.php";
       
     <li><a href="../index.php">Accueil</a></li>
         <li><a href="boutique.php">Boutique</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Panier</a></li>
-            <li><a href="#">Authentification</a></li>
-          </ul>
-        </li>
+        <?php
+        if(isset($_SESSION['login'])){
+    echo'<li><a href="compte.php"> Mon compte </a></li>';
+  }
+  else{
+    echo'<li><a href="login.php">Authentification</a></li>';
+}
+         ?>
       
         <li><a href="contact.php">Contact</a></li>
     
@@ -76,6 +113,7 @@ include "commande-back.php";
         </tr>
       </thead>
       <tbody>
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <?php
       while($row = $result2->fetch_assoc()){
         $id_pr=$row['id_produit'];
@@ -84,7 +122,7 @@ include "commande-back.php";
 
         
       echo '<tr>
-              <td> <img src="'.$row2['img'].'"></td>
+        <td> <img class="imgpanier" src="../'.$row2['img'].'"></td>
         <td>'.$row2['titre'].'</td>
         <td>'.$row2['prix'].'</td>
         <td>'.$row['qte'].'</td>
@@ -102,36 +140,43 @@ include "commande-back.php";
     <div class="row">
       <div class="col-md-6">
 <h4>Vous êtes peut être interessés par :</h4>
-<div class="col-md-6 col-12 livre">
+<div class="col-md-6 livre">
 <h3> L'appel de l'ange </h3>
-<p> L'Appel de l'ange est un roman de Guillaume Musso paru en 2011 chez XO éditions.  </p>
+<p>  Guillaume Musso </p>
 <div class="imglivre" >
-<i class="fas fa-shopping-basket"></i>
-<i class="fas fa-heart"></i>
-<i class="fas fa-eye"></i>
+<div class="imglivre11" >
+ <button class="fas fa-shopping-basket"></button>
+<button class="fas fa-heart"></button>
+<button class="fas fa-eye"></button>
 </div>
 </div>
-<div class="col-md-6 col-12 livre">
+<p class="prix">50$ </p>
+</div>
+<div class="col-md-6 livre">
 <h3> L'appel de l'ange </h3>
-<p> L'Appel de l'ange est un roman de Guillaume Musso paru en 2011 chez XO éditions.  </p>
+<p>  Guillaume Musso </p>
 <div class="imglivre" >
-<i class="fas fa-shopping-basket"></i>
-<i class="fas fa-heart"></i>
-<i class="fas fa-eye"></i>
+<div class="imglivre11" >
+ <button class="fas fa-shopping-basket"></button>
+<button class="fas fa-heart"></button>
+<button class="fas fa-eye"></button>
 </div>
+</div>
+<p class="prix">50$ </p>
 </div>
 
     </div>
     <div class="col-md-6">
     <div class="insdiv">
           <h4> Sommaire de la commande </h4>
-          <h3>Total : <?php $cart->CountTotal($id_user); ?> </h3>
+          <h3>Total : <?= $cart->CountTotalc($id_user); ?> </h3>
           <h3>Frais de livraison $50</h3>
           <hr>
           <h3>Total : <?php  $cart->CountTotalDef($id_user); ?> </h3>
   </div>
   <center>
-  <button class="btncnxxx" >Valider la commande</button>
+  <button class="btncnxxx" type="submit" name="validercmd"> Valider la commande</button>
+  </form>
 </center>
 </div>
 </div>
@@ -186,7 +231,8 @@ include "commande-back.php";
 <i class="fab fa-pinterest-square pinterest"></i>
 </div>
 </footer>
-
 </div>
+<script src="js/script.js">
+</script>
 </body>
 </html>

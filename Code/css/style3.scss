@@ -12,6 +12,22 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+.nom{
+  margin-right: 50px;
+  text-decoration: none;
+  color: black;
+  // display: flex;
+  margin-top: -30px;
+  &:hover{
+    text-decoration: none;
+  color: black;
+  }
+  i{
+    color: $Violet;
+
+  }
+
+}
 
 body,html {
   background-color: whitesmoke;
@@ -56,6 +72,9 @@ body,html {
   width: 80%;
   margin-left: 10%;
 }
+.tb2{
+  width: 100%;
+}
 table{
   table-layout: fixed;
 }
@@ -77,13 +96,18 @@ table{
   margin-bottom: 20px;
 }
 .logout{
-  margin-left: 10px;
+  margin-left: 88%;
+  margin-top: -30px;
   text-decoration: none;
+  a{
   color: $Violet;
   &:hover{
     text-decoration: none;
+  }
+  i{
     color: $Violet;
   }
+}
 }
 i{
   color: black;

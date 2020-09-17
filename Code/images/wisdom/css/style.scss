@@ -1,0 +1,54 @@
+$Violet :#8A2BE2;
+$white :#FFFFFF;
+$grisClair :#EEEEEE;
+.nav{
+  color: black;
+  background-color: white;
+  border: none;
+  margin-top: 10px;
+  font-size: 18px;
+}
+.inputtext{
+    padding: 13px 150px 14px 10px;
+    border: 2px solid $grisClair;
+}
+.inputsub{
+    padding: 11px 17px 13px 17px;
+    margin-left: -5px;
+    background-color: $Violet;
+    color: $white;
+    border: none;
+    font-size: 18px;
+  }
+.activee{
+  background-color: $white;
+  color: $Violet;
+}
+.navbar-inverse .navbar-nav>li>a{
+  color: black;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+  color: $Violet;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a, .dropdown-toggle:hover {
+  color: $Violet;
+  background-color: $white;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  color: $Violet;
+  background-color: $white;
+}
+.menu{
+  margin-left: 200px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: $Violet;
+  background-color: $white;
+}
+.select-cat{
+  width: 20%;
+  margin-left: 2%;
+}
+.log-menu{
+  margin-left: 250px;
+}

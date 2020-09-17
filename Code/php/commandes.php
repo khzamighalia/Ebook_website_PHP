@@ -1,3 +1,6 @@
+<?php
+include "commandes-back.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,21 +44,31 @@
 <div class="col-md-2 log-menu">
 <?php
   if(isset($_SESSION['login'])){
-    echo'<br> <a class="nom" href="php/compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
+    echo'<br> <a class="nom" href="compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
   }
   else{
-    echo'<a class="login" href="php/login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
-<a class="ins" href="php/auth.php">Inscription</a>';
+    echo'<a class="login" href="login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
+<a class="ins" href="register.php">Inscription</a>';
 }
 ?>
 </div>
 <div class="col-md-1 pap">
 <i class="fab fa-opencart cartmenu" ></i>
 </div>
-<div class="col-md-1 pa">
-  <h3 class="hh"> Panier </h3>
-  <p class="pp">$0.00 
-    <img src="../images/iconarrow.png"></img></p>
+<?php
+        if(isset($_SESSION['login'])){
+    echo'
+    <div class="col-md-1 pa2">
+  <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+<p class="pp2">'.$result2.'.00$ <i class=" arr fas fa-angle-down"></i></p>';
+  }
+  else{
+    echo'<div class="col-md-1 pa">
+    <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+  <p class="pp"> $0.00 <i class=" arr fas fa-angle-down"></i>
+  </p>';
+}
+         ?>  
 </div>
 </div>
 </div>
@@ -89,10 +102,10 @@
         <li><a href="boutique.php">Boutique</a></li>
         <?php
         if(isset($_SESSION['login'])){
-    echo'<li><a href="php/compte.php"> Mon compte </a></li>';
+    echo'<li><a href="compte.php"> Mon compte </a></li>';
   }
   else{
-    echo'<li><a href="php/login.php">Authentification</a></li>';
+    echo'<li><a href="login.php">Authentification</a></li>';
 }
          ?>   
         <li><a href="contact.php">Contact</a></li>
@@ -131,29 +144,30 @@
 <div class="container-fluid boutique" >
 <div class="row">
     <div class="col-md-3 comptebar" >
-        <div class="cptpagediv">
-      <button class="cpt"><a href="compte.php"> <i class="fas fa-tachometer-alt"></i> tableau de bord</button>
-</a></div>
+    <a href="compte.php">
+    <div class="cptpagediv">
+      <button class="cpt"><i class="fas fa-tachometer-alt"></i> tableau de bord</button>
+    </div></a>
+    <a href="commandes.php">
       <div class="cptpagediv cptpage">
-      <button class="cptpage"><a href="commandes.php"><i class="fas fa-cart-arrow-down"></i> Commandes</button></a>
-      </div>
+      <button class="cptpage"><i class="fas fa-cart-arrow-down"></i> Commandes</button>
+      </div></a>
+      <a href="adresse.php">
       <div class="cptpagediv">
-      <button class="cpt"><a href="telechargements.php"> <i class="fas fa-download"></i>téléchargements</button></a>
-      </div>
+      <button class="cpt"> <i class="fas fa-map-marker"></i>adresse</button>
+      </div></a>
+      <a href="details.php">
       <div class="cptpagediv">
-      <button class="cpt"><a href="paiement.php"> <i class="far fa-credit-card"></i>paiement </button></a>
+      <button class="cpt"> <i class="fas fa-user"></i>détails du compte</button>
       </div>
+      </a>
+      <a href="logout.php">
       <div class="cptpagediv">
-      <button class="cpt"><a href="adresse.php"> <i class="fas fa-map-marker"></i>adresse</button></a>
+      <button class="cpt"><i class="fas fa-sign-out-alt"></i>déconnexion</button>
       </div>
-      <div class="cptpagediv">
-      <button class="cpt"><a href="details.php"> <i class="fas fa-user"></i>détails du compte</button></a>
-      </div>
-      <div class="cptpagediv">
-      <button class="cpt"> <a href="logout.php"><i class="fas fa-sign-out-alt"></i>déconnexion</button></a>
-      </div>
+      </a>
 </div>
-    <div class="col-md-9" >
+    <div class="col-md-9 col-12" >
     <div class="cntcmd">
     <h2>COMMANDES</h2>
     <hr class=hr1>
@@ -161,22 +175,20 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>No</th>
-          <th>Date</th>
-          <th>Status</th>
-          <th>Total</th>
-          <th>Action</th>
-                  </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>25-06-2020</td>
-          <td>En attente</td>
-          <td>$35</td>
-          <td>Afficher</td>
-          
+          <td>N° de commande</td>
+          <td> Date </td>
+          <td> Statut </td>
+          <td> Total </td> 
         </tr>
+        </thead>
+      <tbody>
+        <?php
+        while($row = $result->fetch_assoc()){
+        echo '<tr><td>'.$row['id'].'</td>
+        <td>'.$row['date'].'</td>
+        <td>'.$row['statut'].'</td>
+        <td>'.$row['total'].'$</td>
+        <tr>';}?>
       </tbody>
     </table>
   </div><br>

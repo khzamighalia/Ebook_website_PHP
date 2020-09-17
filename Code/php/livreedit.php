@@ -6,36 +6,42 @@ if(!$_SESSION['login'])
 header("Location: login.php");
 else {
  $liv=new livre();
+ $result2 =$liv->CountTotal($_SESSION['id']);
  $result=$liv->AfficheLivre($id);
 $row = $result->fetch_assoc();
 if (isset($_POST['modlivre'])) {
-	if(!empty($_FILES)){
-		$file = $_FILES['modimg'];
-		$fileName = $_FILES['modimg']['name'];
-		$fileTmpName = $_FILES['modimg']['tmp_name'];
-		$fileSize = $_FILES['modimg']['size'];
-		$fileError = $_FILES['modimg']['error'];
-		$fileType = $_FILES['modimg']['type'];
-		$fileExt = explode('.',$fileName);
-		$fileActualExt = strtolower(end($fileExt));
-		$allowed = array('jpg','jpeg','png','pdf');
-		$img= "images/".$fileName."";
-		if(in_array($fileActualExt, $allowed)){
-			   $fileNameNew = uniqid('',true).".".$fileActualExt;
-			   $fileDestination = '../images/'.$fileName;
-			   move_uploaded_file($fileTmpName, $fileDestination);
-	$result2=$liv->modLivre2($_POST['id'],$_POST['modtitre'],$_POST['modauteur'],$img,$_POST['modcategorie'],$_POST['modlangue'],$_POST['modstock']);}
+	// if(!empty($_FILES)){
+	// 	$file = $_FILES['modimg'];
+	// 	$fileName = $_FILES['modimg']['name'];
+	// 	$fileTmpName = $_FILES['modimg']['tmp_name'];
+	// 	$fileSize = $_FILES['modimg']['size'];
+	// 	$fileError = $_FILES['modimg']['error'];
+	// 	$fileType = $_FILES['modimg']['type'];
+	// 	$fileExt = explode('.',$fileName);
+	// 	$fileActualExt = strtolower(end($fileExt));
+	// 	$allowed = array('jpg','jpeg','png','pdf');
+	// 	$img= "images/".$fileName."";
+	// 	if(in_array($fileActualExt, $allowed)){
+	// 		   $fileNameNew = uniqid('',true).".".$fileActualExt;
+	// 		   $fileDestination = '../images/'.$fileName;
+	// 		   move_uploaded_file($fileTmpName, $fileDestination);
+	// $result2=$liv->modLivre2($_POST['id'],$_POST['modtitre'],$_POST['modauteur'],$img,$_POST['modcategorie'],$_POST['modlangue'],$_POST['modstock']);
+
+// }
 	
-}
-else{
-	$result2=$liv->modLivre($_POST['id'],$_POST['modtitre'],$_POST['modauteur'],$_POST['modcategorie'],$_POST['modlangue'],$_POST['modstock']);}
-}
-	header("location:dashbord.php?uploadsuccess");
+
+// else{
+	$result2=$liv->modLivre($_POST['id'],$_POST['modtitre'],$_POST['modauteur'],$_POST['modcategorie'],$_POST['modlangue'],$_POST['modstock']);
+	header("Location: dashbord.php?updatesuccess");
+	}
+// }
 	
 
     }
-}
-     ?>
+	
+	
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

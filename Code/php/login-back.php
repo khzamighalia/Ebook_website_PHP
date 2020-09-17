@@ -5,15 +5,19 @@ session_start();
        $funObj = new connection();  
         $email = $_POST['email'];  
         $password = $_POST['password'];  
-		$user = $funObj->Login($email,$password);  
-        if ($user =='admin') {
-            // Registration Success  
+        $user = $funObj->Login($email,$password);   
+        if ($user =="admin"){
+            // Registration success  
+            // header("location:../index.php"); 
            header("location:dashbord.php"); 
+        //    var_dump($user); 
         }
-        else if($user =='user') {
+        else if($user =="user"){
            header("location:../index.php"); 
+        // var_dump($user); 
         } 
         else {  
+            var_dump($user); 
             // Registration Failed 
             echo "<script>alert(\"l'email ou le mot de passe n'est pas correct\")</script>";  
             

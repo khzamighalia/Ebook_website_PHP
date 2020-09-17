@@ -1,0 +1,63 @@
+.nav {
+  color: black;
+  background-color: white;
+  border: none;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.inputtext {
+  padding: 13px 150px 14px 10px;
+  border: 2px solid #EEEEEE;
+}
+
+.inputsub {
+  padding: 11px 17px 13px 17px;
+  margin-left: -5px;
+  background-color: #8A2BE2;
+  color: #FFFFFF;
+  border: none;
+  font-size: 18px;
+}
+
+.activee {
+  background-color: #FFFFFF;
+  color: #8A2BE2;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: black;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #8A2BE2;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a, .dropdown-toggle:hover {
+  color: #8A2BE2;
+  background-color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+  color: #8A2BE2;
+  background-color: #FFFFFF;
+}
+
+.menu {
+  margin-left: 200px;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+  color: #8A2BE2;
+  background-color: #FFFFFF;
+}
+
+.select-cat {
+  width: 20%;
+  margin-left: 2%;
+}
+
+.log-menu {
+  margin-left: 250px;
+}
+/*# sourceMappingURL=style.css.map */

@@ -4,7 +4,7 @@ include "panier-back.php";
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Wisdom </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,6 +17,46 @@ include "panier-back.php";
 
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head><body>
+<div class="container-fluid">
+<div class="row cnt-navbar">
+  <div class="select-cat col-md-10">
+<select class="form-control form-control-lg ">
+  <option>--Chercher par catégories--</option>
+  <option value="">Arts & Culture </option>
+  <option value=""> Développement personnel</option>
+  <option value="">Histoire & Géographie</option>
+  <option value="">Romans & Fictions</option>
+  <option value="">Sciences & Techniques</option>
+
+
+</select>
+
+</div>
+<div class="select-cat col-md-2 col-12">
+<select class="form-control form-control-lg">
+  <option>-- Chercher par langues --</option>
+  <option> Arabe </option>
+  <option> Anglais </option>
+  <option> Espagnol </option>
+  <option> Français </option>
+  </select>
+</div>
+<div class="col-md-2 log-menu">
+<?php
+  if(isset($_SESSION['login'])){
+    echo'<br> <a class="nom" href="compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
+  }
+  else{
+    echo'<a class="login" href="login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
+<a class="ins" href="register.php">Inscription</a>';
+}
+?>
+</div>
+</div>
+
+</div>
+</div>
+
 <nav class="navbar navbar-inverse nav">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -44,14 +84,14 @@ include "panier-back.php";
       
     <li><a href="../index.php">Accueil</a></li>
         <li><a href="boutique.php">Boutique</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Panier</a></li>
-            <li><a href="#">Authentification</a></li>
-          </ul>
-        </li>
-      
+        <?php
+        if(isset($_SESSION['login'])){
+    echo'<li><a href="compte.php"> Mon compte </a></li>';
+  }
+  else{
+    echo'<li><a href="php/login.php">Authentification</a></li>';
+}
+         ?>
         <li><a href="contact.php">Contact</a></li>
     
       </ul>
@@ -86,10 +126,9 @@ include "panier-back.php";
         $result3= $cart->dbh->query("SELECT * FROM livre WHERE id='$id_pr'");
         $row2 = $result3->fetch_assoc();
 
-        
       echo '<tr>
       <td><a href="supplivrepanier.php?id='.$row['id'].'" type="button"><button><i class="fas fa-trash"></i></button></a></td>
-        <td> <img src="'.$row2['img'].'"></td>
+        <td> <img class="imgpanier" src="../'.$row2['img'].'"></td>
         <td>'.$row2['titre'].'</td>
         <td>'.$row2['prix'].'</td>
         <form action="'.$_SERVER['PHP_SELF'].'" method="POST">

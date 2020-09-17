@@ -65,7 +65,15 @@ include 'dbconnect.php';
             $qr = $this->dbh->query("SELECT * FROM livre WHERE auteur='$recherche' OR titre='$recherche'") or die(mysql_error());       
             return $qr;
         }
-             
+        public function CountTotal($id_user){
+            $qr =mysqli_query($this->dbh,"SELECT SUM(total) AS total_sum FROM panier WHERE id_user='$id_user'");  
+            $row = mysqli_fetch_assoc($qr); 
+            if($row['total_sum']!=0)
+            return $row['total_sum'];
+            else
+            return 0;
+            
+        }  
 
     }
     ?> 

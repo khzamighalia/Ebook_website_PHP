@@ -2,8 +2,7 @@
 include 'dbconnect.php';   
     class connection extends DB_con{ 
         function __construct() {  
-            parent::__construct();
-            // $this->conn = $dbh;           
+            parent::__construct();         
         }  
         
         function __destruct() {  
@@ -25,10 +24,11 @@ include 'dbconnect.php';
                 $_SESSION["firstname"]=$user_data["firstname"];
                 $_SESSION["lastname"]=$user_data["lastname"];
 
-                return $_SESSION["statut"];
+                return $user_data["statut"];
             }  
             else  
-                return FALSE;         
+                // return FALSE;
+                var_dump($res);         
         }  
         
     

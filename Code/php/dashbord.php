@@ -44,8 +44,7 @@
       <ul class="nav nav-stacked" id="menu-bar">
       <li><img src="../images/logo2.png"></li>
         <li><a href="dashbord.php">Tableau de bord</a></li>
-        <li><a href="dashbord-plusvendus.php">Plus vendus</a></li>
-        <li><a href="dashbord-nouveaux.php">Nouveaux </a></li>
+        <li><a href="dash-commandes.php">Commandes</a></li>
       </ul>
     </div> 
   </div>
@@ -57,8 +56,8 @@
  <p class="topp2">
  <?php
   if(isset($_SESSION['login'])){
-    echo'<br> <a class="nom" href="#"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>
-    <a class="logout" href="logout.php"> <i class="fas fa-sign-out-alt"></i> Deconnexion </a></p>';
+    echo' <a class="nom" href="#"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>
+    <div class="logout"> <a href="logout.php"> <i class="fas fa-sign-out-alt"></i> Deconnexion </a></p></div>';
   }
 ?>
 </div>

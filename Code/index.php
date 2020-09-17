@@ -98,10 +98,20 @@ include "php/index-back.php"
 <div class="col-md-1 pap">
 <i class="fab fa-opencart cartmenu" ></i>
 </div>
-<div class="col-md-1 pa">
-  <h4 class="hh"> Panier </h4>
-  <p class="pp">$0.00 
-    <img src="images/iconarrow.png"></img></p>
+  <?php
+        if(isset($_SESSION['login'])){
+    echo'
+    <div class="col-md-1 pa2">
+  <h4 class="hh"><a href="php/panier.php"> Panier </a></h4>
+<p class="pp2">'.$result2.'.00$ <i class=" arr fas fa-angle-down"></i>';
+  }
+  else{
+    echo'<div class="col-md-1 pa">
+    <h4 class="hh"><a href="php/panier.php"> Panier </a></h4>
+  <p class="pp"> $0.00 
+  <i class=" arr fas fa-angle-down"></i></p>';
+}
+         ?>  
 </div>
 
 </div>
@@ -439,9 +449,9 @@ echo '<div class="col-md-3 col-12 livre">
 </div>
 <div class="col-md-3 col-6 livre2">
 <div class="imglivre2" >
-<button class="fas fa-shopping-basket"></button>
+<!-- <button class="fas fa-shopping-basket"></button>
 <button class="fas fa-heart"></button>
-<button class="fas fa-eye"></button>
+<button class="fas fa-eye"></button> -->
 </div>
 </div>
 <div class="col-md-2 col-6">
@@ -453,9 +463,9 @@ echo '<div class="col-md-3 col-12 livre">
 <div class="row">
             <div class="col-md-3 col-6 livre2">
 <div class="imglivre2" >
-<button class="fas fa-shopping-basket"></button>
+<!-- <button class="fas fa-shopping-basket"></button>
 <button class="fas fa-heart"></button>
-<button class="fas fa-eye"></button>
+<button class="fas fa-eye"></button> -->
 </div>
 </div>
 <div class="col-md-2 col-6">
@@ -465,9 +475,9 @@ echo '<div class="col-md-3 col-12 livre">
 </div>
 <div class="col-md-3 col-6 livre2">
 <div class="imglivre2" >
-<button class="fas fa-shopping-basket"></button>
+<!-- <button class="fas fa-shopping-basket"></button>
 <button class="fas fa-heart"></button>
-<button class="fas fa-eye"></button>
+<button class="fas fa-eye"></button> -->
 </div>
 </div>
 <div class="col-md-2 col-6">
@@ -476,7 +486,6 @@ echo '<div class="col-md-3 col-12 livre">
 <p class="prix">50$ </p>
 </div>
 </div>
-
 </div>
 </div>
 </div>

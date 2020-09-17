@@ -63,8 +63,9 @@ body {
 }
 
 .log-menu {
-  margin-left: 350px;
-  margin-top: -15px;
+  margin-left: 250px;
+  margin-top: -5px;
+  margin-right: 130px;
 }
 
 .pp {
@@ -79,9 +80,24 @@ body {
   margin-top: -2px;
 }
 
+.pp2 {
+  margin-top: -10px;
+  margin-left: -40px;
+}
+
+.pp2 img {
+  width: 15px;
+  height: 10px;
+}
+
 .hh {
   margin-top: -5px;
   margin-left: -50px;
+}
+
+.hh a {
+  text-decoration: none;
+  color: black;
 }
 
 .cart-menu {
@@ -128,7 +144,7 @@ body {
 
 .livre {
   border: none;
-  margin-left: 50px;
+  margin-left: 20px;
   border-right: 2px solid #EEEEEE;
   -ms-flex-line-pack: center;
       align-content: center;
@@ -551,15 +567,7 @@ footer a:hover {
   margin-bottom: 10px;
   margin-left: 5%;
   text-transform: uppercase;
-}
-
-.cptpage a {
   color: white;
-  text-decoration: none;
-}
-
-.cptpage:hover {
-  color: black;
 }
 
 .titreb2 {
@@ -571,7 +579,7 @@ footer a:hover {
 }
 
 .insdiv {
-  padding: 10px 40px;
+  padding: 10px 10px;
   border: 2px solid #EEEEEE;
   border-radius: 25px;
 }
@@ -590,14 +598,14 @@ footer a:hover {
 }
 
 .no {
-  padding: 10px 62% 10px 10px;
   margin-bottom: 10px;
   margin-left: 5%;
   border: 2px solid #EEEEEE;
+  padding: 10px 20px;
 }
 
 .no2 {
-  padding: 10px 65.5% 10px 10px;
+  padding: 10px 20px;
   margin-bottom: 10px;
   border: 2px solid #EEEEEE;
 }
@@ -608,10 +616,6 @@ footer a:hover {
 
 .nnn3 input {
   margin-bottom: 50px;
-}
-
-.passer {
-  margin-left: 80%;
 }
 
 .cmp {
@@ -666,11 +670,23 @@ input[type="radio"] {
   color: white;
 }
 
+.annuler {
+  padding: 9px 20px 10px 20px;
+  margin-top: -50px;
+  margin-bottom: 20px;
+  background-color: #FFFFFF;
+  color: #8A2BE2;
+  border: 1px solid #8A2BE2;
+}
+
+.imglivre11 {
+  display: none;
+}
+
 .btncnx {
   background-color: white;
   border: 4px solid #EEEEEE;
-  padding: 10px 50px;
-  margin-left: 35%;
+  padding: 10px 20px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -697,7 +713,7 @@ input[type="radio"] {
 }
 
 .auth {
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .auth2 {
@@ -874,12 +890,11 @@ input[type="radio"] {
 }
 
 .nom {
-  margin-left: -100px;
   margin-right: 50px;
+  margin-top: -20px;
   text-decoration: none;
   color: black;
   font-size: 18px;
-  margin-top: -10px;
 }
 
 .nom:hover {
@@ -888,8 +903,9 @@ input[type="radio"] {
 }
 
 .nom i {
-  font-size: 22px;
   color: #8A2BE2;
+  font-size: 22px;
+  margin-top: -20px;
 }
 
 .headerr {
@@ -901,9 +917,29 @@ input[type="radio"] {
   background-color: white;
 }
 
+.imgpanier {
+  width: 50px;
+  height: 40px;
+}
+
 @media (max-width: 1024px) {
   .inputsubbb {
     margin-left: -30px;
+  }
+  .passer {
+    margin-left: 5%;
+  }
+  .nnn input {
+    margin-left: 0%;
+  }
+  .nnn label {
+    margin-left: 0%;
+  }
+  .no {
+    padding: -14px 100px 10px 10px;
+  }
+  .auth2 {
+    margin-left: 0%;
   }
   .cntcpt {
     width: 300px;
@@ -981,7 +1017,7 @@ input[type="radio"] {
     border: none;
   }
   .cntcmd {
-    width: 50%;
+    width: 100%;
   }
   .cntcmd h3 {
     font-size: 12px;

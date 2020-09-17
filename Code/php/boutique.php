@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "boutique-back.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@ session_start();
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head>
 <body>
-<div class="container-fluid">
+<div class="">
 <div class="row cnt-navbar">
   <div class="select-cat col-md-10">
 <select class="form-control form-control-lg ">
@@ -46,7 +46,7 @@ session_start();
 <div class="col-md-2 log-menu">
 <?php
   if(isset($_SESSION['login'])){
-    echo'<br> <a class="nom" href="php/compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
+    echo'<br> <a class="nom" href="compte.php"> <i class="fas fa-user"></i> '.$_SESSION['firstname'].' '.$_SESSION['firstname'].' </a>';
   }
   else{
     echo'<a class="login" href="php/login.php"><strong>Connexion </strong></a><br> <span class="ou"> ou </span> 
@@ -57,10 +57,20 @@ session_start();
 <div class="col-md-1 pap">
 <i class="fab fa-opencart cartmenu" ></i>
 </div>
-<div class="col-md-1 pa">
-  <h3 class="hh"> Panier </h3>
-  <p class="pp">$0.00 
-    <img src="../images/iconarrow.png"></img></p>
+<?php
+        if(isset($_SESSION['login'])){
+    echo'
+    <div class="col-md-1 pa2">
+  <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+  <p class="pp2">'.$result2.'.00$ <i class=" arr fas fa-angle-down"></i></p>';
+  }
+  else{
+    echo'<div class="col-md-1 pa">
+    <h4 class="hh"><a href="panier.php"> Panier </a></h4>
+  <p class="pp"> $0.00 <i class=" arr fas fa-angle-down"></i>
+  </p>';
+}
+         ?>  
 </div>
 </div>
 </div>
@@ -94,7 +104,7 @@ session_start();
         <li><a href="boutique.php">Boutique</a></li>
         <?php
         if(isset($_SESSION['login'])){
-    echo'<li><a href="php/compte.php"> Mon compte </a></li>';
+    echo'<li><a href="compte.php"> Mon compte </a></li>';
   }
   else{
     echo'<li><a href="php/login.php">Authentification</a></li>';
@@ -139,40 +149,39 @@ session_start();
       <button class="titreb1"> catégories</button>
       <div class="but">
       <div class="but1">
-      <button>  Arts & Culture</button>
+      <a href="boutiquecat.php?id=0"><button>  Arts & Culture</button></a>
 </div>
       <div class="but1">
-      <button>Développement personnel</button>
+      <a href="boutiquecat.php?id=1"><button>Développement personnel</button></a>
       </div>
       <div class="but1">
-      <button>Histoire & Géographie</button>
+      <a href="boutiquecat.php?id=2"><button>Histoire & Géographie</button></a>
       </div>
       <div class="but1">
-      <button>Romans & Fictions</button>
+      <a href="boutiquecat.php?id=3"><button>Romans & Fictions</button></a>
       </div>
       <div class="but1">
-      <button>Sciences & Techniques</button>
+      <a href="boutiquecat.php?id=4"><button>Sciences & Techniques</button></a>
       </div>
 </div>
 <button class="titreb2"> Langues</button>
 <div>
-  <input type="radio" id="anglais" name="langue" value="anglais"
-         checked>
-  <label for="anglais">Anglais</label>
+<a href="boutiquelan.php?id=0"><input type="radio" id="anglais" name="langue" value="anglais">
+         <label for="anglais">Anglais</label></a>
 </div>
 
 <div>
-  <input type="radio" id="arabe" name="langue" value="arabe">
-  <label for="arabe">Arabe</label>
+<a href="boutiquelan.php?id=1"><input type="radio" id="arabe" name="langue" value="arabe">
+  <label for="arabe">Arabe</label></a>
 </div>
 
 <div>
-  <input type="radio" id="espagnol" name="langue" value="espagnol">
-  <label for="espagnol">Espagnol</label>
+<a href="boutiquelan.php?id=2"><input type="radio" id="espagnol" name="langue" value="espagnol">
+  <label for="espagnol">Espagnol</label></a>
 </div>
 <div>
-  <input type="radio" id="français" name="langue" value="français">
-  <label for="français">Français</label>
+<a href="boutiquelan.php?id=3"><input type="radio" id="français" name="langue" value="français"></a>
+  <label for="français">Français</label></a>
 </div>
 
 <button class="titreb3"> Prix</button>
@@ -194,38 +203,27 @@ session_start();
 </div>
 
     <div class="col-md-9" >
-    <div class="row">
-<div class="col-md-3 col-12 livre">
-<h3> L'appel de l'ange </h3>
-<p> L'Appel de l'ange est un roman de Guillaume Musso paru en 2011 chez XO éditions.  </p>
+    
+    <div class="container">
+<div class="row">
+<?php while($row = $result->fetch_assoc()){
+echo '<div class="col-md-2 col-12 livre">
+<h3>'.$row['titre'].'</h3>
+<p>'.$row['auteur'].' </p>
 <div class="imglivre" >
-<i class="fas fa-shopping-basket"></i>
-<i class="fas fa-heart"></i>
-<i class="fas fa-eye"></i>
-
+<div class="imglivre11">
+<a href="panierback.php?id='.$row['id'].'" type="button"><button class="fas fa-shopping-basket"></button></a>
+<a href="favoris.php?id='.$row['id'].'" type="button"><button class="fas fa-heart"></button></a>
+<a href="livredesc.php?id='.$row['id'].'" type="button"><button class="fas fa-eye"></button></a>
 </div>
 </div>
-<div class="col-md-3 col-12 livre">
-<h3> سلام </h3>
-<p> L'Appel de l'ange est un roman de Guillaume Musso paru en 2011 chez XO éditions.  </p>
-<div class="imglivre" >
-<i class="fas fa-shopping-basket"></i>
-<i class="fas fa-heart"></i>
-<i class="fas fa-eye"></i>
-
+<p class="prix">'.$row['prix'].'$ </p>
+</div>
+';
+}
+?>
 </div>
 </div>
-<div class="col-md-3 col-12 livre">
-<h3> L'appel de l'ange </h3>
-<p> L'Appel de l'ange est un roman de Guillaume Musso paru en 2011 chez XO éditions.  </p>
-<div class="imglivre" >
-<i class="fas fa-shopping-basket"></i>
-<i class="fas fa-heart"></i>
-<i class="fas fa-eye"></i>
-
-</div>
-</div>
-
 </div>
 </div>
 </div>
@@ -285,7 +283,7 @@ session_start();
 </div>
 </div>
 </footer>
-
 </div>
+<script src="../js/script.js"></script>
 </body>
 </html>
